@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec/my_colors.dart';
 import 'package:tec/view/main_screen.dart';
+import 'package:tec/view/my_cats.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -104,7 +105,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: const SplashScreen(),
-      home: const MainScreen(),
+      home: const MyCats(),
     );
   }
 }

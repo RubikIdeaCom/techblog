@@ -12,6 +12,8 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
+final GlobalKey<ScaffoldState> _key = GlobalKey();
+
 class _MainScreenState extends State<MainScreen> {
   var selectedPageIndex = 0;
 
@@ -28,6 +30,7 @@ class _MainScreenState extends State<MainScreen> {
 
     return SafeArea(
       child: Scaffold(
+        key: _key,
         drawer: Drawer(
           backgroundColor: SolidColors.scafoldBg,
           child: Padding(
@@ -87,14 +90,20 @@ class _MainScreenState extends State<MainScreen> {
         ),
         appBar: // Custom App bar
             AppBar(
+          automaticallyImplyLeading: false, // Remove flutter exclusive drawer
           elevation: 0,
           backgroundColor: SolidColors.scafoldBg,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Icon(
-                Icons.menu,
-                color: Colors.black,
+              InkWell(
+                onTap: () {
+                  _key.currentState!.openDrawer();
+                },
+                child: const Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                ),
               ),
               // Create a responsive Logo
               Image.asset(

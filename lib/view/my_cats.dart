@@ -82,7 +82,10 @@ class _MyCatsState extends State<MyCats> {
                         itemBuilder: ((context, index) {
                           return InkWell(
                               onTap: (() {
-                                selectedTags.add(tagList[index]);
+                                if (selectedTags.contains(tagList[index]) ==
+                                    false) {
+                                  selectedTags.add(tagList[index]);
+                                }
                               }),
                               child:
                                   MainTags(index: index, textTheme: textTheme));
