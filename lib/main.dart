@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
@@ -12,8 +13,37 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('fa', ''), // Farsi
+      ],
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Mahsa',
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+                fontFamily: 'Mahsa', fontSize: 23, fontWeight: FontWeight.bold),
+            bodyText1: TextStyle(
+                fontFamily: 'Mahsa', fontSize: 16, fontWeight: FontWeight.w300),
+            headline2: TextStyle(
+                fontFamily: 'Mahsa',
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.w300),
+            headline3: TextStyle(
+                fontFamily: 'Mahsa',
+                fontSize: 16,
+                color: Colors.red,
+                fontWeight: FontWeight.w300),
+            headline4: TextStyle(
+                fontFamily: 'Mahsa',
+                fontSize: 16,
+                color: Colors.green,
+                fontWeight: FontWeight.w700)),
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
