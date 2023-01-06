@@ -12,8 +12,15 @@ class MyStrings {
   static const String logout = "خروج از حساب کاربری";
   static const String insertYourEmail = "لطفا ایمیل را وارد کن";
   static const String insertActivateCode = "کد فعال سازی را وارد کن";
+  static const String techblogGithubUrl =
+      "https://github.com/RubikIdeaCom/techblog";
   static const String selectYourFavoriteCats =
       "دسته بندی مورد نظرت رو انتخاب کن:";
+  static const String shareText = """
+من از تک بلاگ استفاده میکنم، خیلی باحاله، تو هم داشته باش\n
+www.rubikidea.com
+""";
+
   static const String welcome = """به تک بلاگ خوش اومدی
   برای ارسال مطلب و پادکست باید حتما
   ثبت نام کنی.
