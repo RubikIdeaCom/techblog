@@ -4,6 +4,7 @@ import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/component/my_strings.dart';
 import 'package:tec/models/fake_data.dart';
+import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/profile_screen.dart';
 import 'package:share_plus/share_plus.dart';
 
