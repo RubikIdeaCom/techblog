@@ -56,11 +56,7 @@ class HomeScreen extends StatelessWidget {
                 bodyMargin: bodyMargin,
                 homePagePosterMap: homePagePosterMap,
                 textTheme: textTheme),
-            HomePagePodcastList(
-                size: size,
-                blogList: blogList,
-                bodyMargin: bodyMargin,
-                textTheme: textTheme),
+            topPodcasts(),
             const SizedBox(
               height: 60,
             ),
@@ -154,102 +150,87 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-class HomePagePodcastList extends StatelessWidget {
-  HomePagePodcastList({
-    Key? key,
-    required this.size,
-    required this.blogList,
-    required this.bodyMargin,
-    required this.textTheme,
-  }) : super(key: key);
-
-  final Size size;
-  List<BlogModel> blogList;
-  final double bodyMargin;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget topPodcasts() {
     return SizedBox(
       height: size.height / 3.5,
-      child: ListView.builder(
-        itemCount: blogList
-            .getRange(0, blogList.length > 5 ? 5 : blogList.length)
-            .length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          //Blog Item
-          return Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 12),
-                child:
-                    //Blog List
-                    SizedBox(
-                  height: size.height / 4.5,
-                  width: size.width / 2.5,
-                  child: Stack(children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(16)),
-                        image: DecorationImage(
-                            image: NetworkImage(blogList[index].imageUrl),
-                            fit: BoxFit.cover),
+      child: Obx(
+        () => ListView.builder(
+          itemCount: homeScreenController.topPodcast.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            //Blog Item
+            return Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 12),
+                  child:
+                      //Blog List
+                      SizedBox(
+                    height: size.height / 4.5,
+                    width: size.width / 2.5,
+                    child: Stack(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(16)),
+                          image: DecorationImage(
+                              image: NetworkImage(homeScreenController
+                                  .topPodcast[index].poster),
+                              fit: BoxFit.cover),
+                        ),
+                        foregroundDecoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                          gradient: LinearGradient(
+                              colors: GradiantColors.blogPost,
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
+                        ),
                       ),
-                      foregroundDecoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        gradient: LinearGradient(
-                            colors: GradiantColors.blogPost,
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter),
+                      Positioned(
+                        left: 0,
+                        bottom: 8,
+                        right: 0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              homeScreenController.topPodcast[index].publisher,
+                              style: textTheme.subtitle1,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  homeScreenController.topPodcast[index].view,
+                                  style: textTheme.subtitle1,
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                const Icon(
+                                  Icons.remove_red_eye_sharp,
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      bottom: 8,
-                      right: 0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            blogList[index].writer,
-                            style: textTheme.subtitle1,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                blogList[index].views,
-                                style: textTheme.subtitle1,
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Icon(
-                                Icons.remove_red_eye_sharp,
-                                color: Colors.white,
-                                size: 16,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ]),
+                    ]),
+                  ),
                 ),
-              ),
-              SizedBox(
-                  width: size.width / 2.4,
-                  child: Text(
-                    blogList[index].title,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  )),
-            ],
-          );
-        },
+                SizedBox(
+                    width: size.width / 2.4,
+                    child: Text(
+                      homeScreenController.topPodcast[index].title,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    )),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

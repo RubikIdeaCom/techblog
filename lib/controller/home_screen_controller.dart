@@ -10,7 +10,7 @@ class HomeScreenController extends GetxController {
 
   RxList tagList = RxList();
   RxList<ArticleModel> topVisitedList = RxList();
-  RxList<PodcastModel> tagPodcast = RxList();
+  RxList<PodcastModel> topPodcast = RxList();
 
   @override
   void onInit() {
@@ -26,6 +26,10 @@ class HomeScreenController extends GetxController {
     if (response.statusCode == 200) {
       response.data['top_visited'].forEach((element) {
         topVisitedList.add(ArticleModel.fromJson(element));
+      });
+
+      response.data['top_podcast'].forEach((element) {
+        topPodcast.add(PodcastModel.fromJson(element));
       });
     }
   }
