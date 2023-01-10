@@ -1,4 +1,7 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
@@ -25,42 +28,46 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8),
-        child: Column(
-          children: [
-            HomePagePoster(
-                size: size,
-                homePagePosterMap: homePagePosterMap,
-                textTheme: textTheme),
-            const SizedBox(
-              height: 16,
-            ),
-            // Tag list
-            HomePageTagList(
-                bodyMargin: bodyMargin,
-                homePagePosterMap: homePagePosterMap,
-                textTheme: textTheme),
-            const SizedBox(
-              height: 32,
-            ),
-            SeeMoreBlog(
-                bodyMargin: bodyMargin,
-                homePagePosterMap: homePagePosterMap,
-                textTheme: textTheme),
-            topVisited(),
-            const SizedBox(
-              height: 32,
-            ),
-            SeeMorePodcast(
-                bodyMargin: bodyMargin,
-                homePagePosterMap: homePagePosterMap,
-                textTheme: textTheme),
-            topPodcasts(),
-            const SizedBox(
-              height: 60,
-            ),
-          ],
+      child: Obx(
+        () => Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: homeScreenController.loading.value == false
+              ? Column(
+                  children: [
+                    poster(),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    // Tag list
+                    HomePageTagList(
+                        bodyMargin: bodyMargin,
+                        homePagePosterMap: homePagePosterMap,
+                        textTheme: textTheme),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    SeeMoreBlog(
+                        bodyMargin: bodyMargin,
+                        homePagePosterMap: homePagePosterMap,
+                        textTheme: textTheme),
+                    topVisited(),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    SeeMorePodcast(
+                        bodyMargin: bodyMargin,
+                        homePagePosterMap: homePagePosterMap,
+                        textTheme: textTheme),
+                    topPodcasts(),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                  ],
+                )
+              : const SpinKitFadingCube(
+                  color: SolidColors.primaryColor,
+                  size: 32,
+                ),
         ),
       ),
     );
@@ -167,8 +174,8 @@ class HomeScreen extends StatelessWidget {
                   child:
                       //Blog List
                       SizedBox(
-                    height: size.height / 4.5,
-                    width: size.width / 2.5,
+                    height: size.height / 5.3,
+                    width: size.width / 2.4,
                     child: Stack(children: [
                       Container(
                         decoration: BoxDecoration(
@@ -232,6 +239,73 @@ class HomeScreen extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+
+  Widget poster() {
+    return Stack(
+      children: [
+        Container(
+          width: size.width / 1.3,
+          height: size.height / 4.2,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
+            image: DecorationImage(
+                // Can not assign Image.asset to DecorationImage, we have to use ".image" after it.
+                image:
+                    Image.asset(homeScreenController.poster.value.image!).image,
+                // Fit picture to the box to have rounded image box.
+                fit: BoxFit.cover),
+          ),
+          foregroundDecoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            gradient: LinearGradient(
+                colors: GradiantColors.homePosterCoverGradiant,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          bottom: 8,
+          right: 0,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    homePagePosterMap['writer'] +
+                        " . " +
+                        homePagePosterMap['date'],
+                    style: textTheme.subtitle1,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        homePagePosterMap['view'],
+                        style: textTheme.subtitle1,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Icon(
+                        Icons.remove_red_eye_sharp,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Text(
+                homeScreenController.poster.value.title!,
+                style: textTheme.headline1,
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
@@ -335,86 +409,6 @@ class HomePageTagList extends StatelessWidget {
               ],
             );
           })),
-    );
-  }
-}
-
-class HomePagePoster extends StatelessWidget {
-  const HomePagePoster({
-    Key? key,
-    required this.size,
-    required this.homePagePosterMap,
-    required this.textTheme,
-  }) : super(key: key);
-
-  final Size size;
-  final homePagePosterMap;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: size.width / 1.3,
-          height: size.height / 4.2,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(16)),
-            image: DecorationImage(
-                // Can not assign Image.asset to DecorationImage, we have to use ".image" after it.
-                image: Image.asset(homePagePosterMap['imageUrl']).image,
-                // Fit picture to the box to have rounded image box.
-                fit: BoxFit.cover),
-          ),
-          foregroundDecoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            gradient: LinearGradient(
-                colors: GradiantColors.homePosterCoverGradiant,
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter),
-          ),
-        ),
-        Positioned(
-          left: 0,
-          bottom: 8,
-          right: 0,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    homePagePosterMap['writer'] +
-                        " . " +
-                        homePagePosterMap['date'],
-                    style: textTheme.subtitle1,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        homePagePosterMap['view'],
-                        style: textTheme.subtitle1,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      const Icon(
-                        Icons.remove_red_eye_sharp,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Text(
-                homePagePosterMap['title'],
-                style: textTheme.headline1,
-              ),
-            ],
-          ),
-        )
-      ],
     );
   }
 }

@@ -1,17 +1,19 @@
+import 'package:tec/component/api_constants.dart';
+
 class PosterModel {
-  late String id;
-  late String title;
-  late String image;
+  late String? id;
+  late String? title;
+  late String? image;
 
   PosterModel({
-    required this.id,
-    required this.title,
-    required this.image,
+    this.id,
+    this.title,
+    this.image,
   });
 
   PosterModel.fromJson(Map<String, dynamic> element) {
     id = element['id'];
     title = element['title'];
-    image = element['image'];
+    image = ApiConstants.hostDlUrl + element['image'];
   }
 }
