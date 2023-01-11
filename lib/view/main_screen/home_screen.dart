@@ -39,10 +39,7 @@ class HomeScreen extends StatelessWidget {
                       height: 16,
                     ),
                     // Tag list
-                    HomePageTagList(
-                        bodyMargin: bodyMargin,
-                        homePagePosterMap: homePagePosterMap,
-                        textTheme: textTheme),
+                    tagsList(),
                     const SizedBox(
                       height: 32,
                     ),
@@ -308,6 +305,25 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
+
+  Widget tagsList() {
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: tagList.length,
+          itemBuilder: ((context, index) {
+            return Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 10),
+                  child: MainTags(index: index, textTheme: textTheme),
+                ),
+              ],
+            );
+          })),
+    );
+  }
 }
 
 class SeeMorePodcast extends StatelessWidget {
@@ -376,39 +392,6 @@ class SeeMoreBlog extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class HomePageTagList extends StatelessWidget {
-  const HomePageTagList({
-    Key? key,
-    required this.bodyMargin,
-    required this.homePagePosterMap,
-    required this.textTheme,
-  }) : super(key: key);
-
-  final double bodyMargin;
-  final homePagePosterMap;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: tagList.length,
-          itemBuilder: ((context, index) {
-            return Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 10),
-                  child: MainTags(index: index, textTheme: textTheme),
-                ),
-              ],
-            );
-          })),
     );
   }
 }

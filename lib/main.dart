@@ -85,11 +85,7 @@ class MyApp extends StatelessWidget {
               fontSize: 16,
               color: Colors.green,
               fontWeight: FontWeight.w700),
-          headline5: TextStyle(
-              fontFamily: 'Mahsa',
-              fontSize: 14,
-              color: SolidColors.hintTextColor,
-              fontWeight: FontWeight.w700),
+          headline5: appBarTextStyle,
         ),
         // This is the theme of your application.
         //
@@ -104,7 +100,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: const SplashScreen(),
-      home: MainScreen(),
+      home: ArticleListScreen(),
     );
   }
 }
