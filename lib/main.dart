@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec/component/my_colors.dart';
-import 'package:tec/view/main_screen.dart';
+import 'package:tec/component/text_style.dart';
+import 'package:tec/view/article_list_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -57,30 +58,30 @@ class MyApp extends StatelessWidget {
           return SolidColors.primaryColor;
         }))),
         fontFamily: 'Mahsa',
-        textTheme: const TextTheme(
-          headline1: TextStyle(
+        textTheme: TextTheme(
+          headline1: const TextStyle(
               fontFamily: 'Mahsa',
               fontSize: 16,
               fontWeight: FontWeight.w700,
               color: SolidColors.posterTitle),
-          subtitle1: TextStyle(
+          subtitle1: const TextStyle(
               fontFamily: 'Mahsa',
               fontSize: 16,
               fontWeight: FontWeight.w300,
               color: SolidColors.posterSubTitle),
-          bodyText1: TextStyle(
+          bodyText1: const TextStyle(
               fontFamily: 'Mahsa', fontSize: 16, fontWeight: FontWeight.w300),
-          headline2: TextStyle(
+          headline2: const TextStyle(
               fontFamily: 'Mahsa',
               fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.w300),
-          headline3: TextStyle(
+          headline3: const TextStyle(
               fontFamily: 'Mahsa',
               fontSize: 16,
               color: SolidColors.seeMore,
               fontWeight: FontWeight.w300),
-          headline4: TextStyle(
+          headline4: const TextStyle(
               fontFamily: 'Mahsa',
               fontSize: 16,
               color: Colors.green,

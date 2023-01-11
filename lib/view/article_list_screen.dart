@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tec/component/my_components.dart';
 import 'package:tec/controller/article_controller.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
@@ -24,6 +24,4 @@ class ArticleListScreen extends StatelessWidget {
       ),
     ));
   }
-
-  
 }
