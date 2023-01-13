@@ -27,9 +27,15 @@ class GradiantColors {
     Color.fromARGB(255, 25, 0, 94),
     Color.fromARGB(255, 64, 4, 87)
   ];
+
   static const List<Color> bottomNavBg = [
     Color.fromARGB(255, 255, 255, 255),
     Color.fromARGB(0, 255, 255, 255)
+  ];
+
+  static const List<Color> singleAppbar = [
+    Color.fromARGB(255, 46, 3, 71),
+    Color.fromARGB(0, 0, 0, 0)
   ];
 
   static const List<Color> tags = [

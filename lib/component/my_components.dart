@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/text_style.dart';
@@ -79,7 +80,7 @@ void myLaunchUrl(String url) async {
 
 PreferredSize appBar(String title) {
   return PreferredSize(
-    preferredSize: const Size.fromHeight(80),
+    preferredSize: const Size.fromHeight(60),
     child: Padding(
       padding: const EdgeInsets.all(12.0),
       child: AppBar(
@@ -109,5 +110,12 @@ PreferredSize appBar(String title) {
         ),
       ),
     ),
+  );
+}
+
+SpinKitFadingCube loading() {
+  return const SpinKitFadingCube(
+    color: SolidColors.primaryColor,
+    size: 32,
   );
 }

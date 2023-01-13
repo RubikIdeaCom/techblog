@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/text_style.dart';
-import 'package:tec/view/article_list_screen.dart';
+import 'package:tec/view/single.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -21,15 +21,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa', ''), // Farsi
-      ],
+    return GetMaterialApp(
+      locale: const Locale('fa'),
+
       title: 'Flutter Demo',
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
@@ -101,7 +95,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: const SplashScreen(),
-      home: ArticleListScreen(),
+      // home: const Single(),
+      home: Single(),
     );
   }
 }
