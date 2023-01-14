@@ -6,23 +6,11 @@ import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/controller/single_article_controller.dart';
 
-class Single extends StatefulWidget {
-  Single({super.key});
-
-  @override
-  State<Single> createState() => _SingleState();
-}
-
-class _SingleState extends State<Single> {
+class Single extends StatelessWidget {
   SingleArticleController singleArticleController =
       Get.put(SingleArticleController());
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    singleArticleController.getArticleInfo();
-  }
+  Single({super.key});
 
   @override
   Widget build(BuildContext context) {

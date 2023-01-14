@@ -4,7 +4,7 @@ class PodcastModel {
   late String id;
   late String title;
   late String poster;
-  late String publisher;
+  late String author;
   late String view;
   late String createdAt;
 
@@ -12,7 +12,7 @@ class PodcastModel {
     required this.id,
     required this.title,
     required this.poster,
-    required this.publisher,
+    required this.author,
     required this.view,
     required this.createdAt,
   });
@@ -21,7 +21,7 @@ class PodcastModel {
     id = element['id'];
     title = element['title'];
     poster = ApiConstants.hostDlUrl + element['poster'];
-    publisher = element['publisher'];
+    author = element['author'];
     view = element['view'];
     createdAt = element['created_at'];
   }

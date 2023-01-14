@@ -6,6 +6,7 @@ import 'package:tec/models/article_model.dart';
 import 'package:tec/models/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/article_list_screen.dart';
+import 'package:tec/view/single.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = false.obs;
@@ -18,10 +19,10 @@ class SingleArticleController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getArticleInfo();
+    getArticleInfo(id);
   }
 
-  void getArticleInfo() async {
+  void getArticleInfo(var id) async {
     articleInfoModel = ArticleInfoModel().obs;
 
     loading.value = true;
@@ -31,12 +32,12 @@ class SingleArticleController extends GetxController {
     // Server connection, await is required
     var response = await DioService().getMethod(
         '${ApiConstants.baseUrl}article/get.php?command=info&id=$id&user_id=$userId');
-
     if (response.statusCode == 200) {
       articleInfoModel.value = ArticleInfoModel.fromJson(response.data);
       loading.value = false;
     } else {
-      loading.value = true;
+      // loading.value = true;
+      print('Status code is not OK!');
     }
 
     tagList.clear();
@@ -48,5 +49,7 @@ class SingleArticleController extends GetxController {
     response.data['related'].forEach((element) {
       relatedList.add(ArticleModel.fromJson(element));
     });
+
+    Get.to(Single());
   }
 }

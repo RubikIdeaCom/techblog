@@ -28,9 +28,8 @@ class ArticleListScreen extends StatelessWidget {
               itemBuilder: ((context, index) {
                 return GestureDetector(
                   onTap: (() => {
-                        singleArticleController.id.value =
-                            listArticleController.articleList[index].id as int,
-                        Get.to(Single()),
+                        singleArticleController.getArticleInfo(
+                            listArticleController.articleList[index].id)
                       }),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

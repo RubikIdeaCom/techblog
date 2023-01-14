@@ -59,10 +59,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 )
-              : const SpinKitFadingCube(
-                  color: SolidColors.primaryColor,
-                  size: 32,
-                ),
+              : SizedBox(height: Get.height, child: loading()),
         ),
       ),
     );
@@ -197,7 +194,7 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              homeScreenController.topPodcast[index].publisher,
+                              homeScreenController.topPodcast[index].author,
                               style: textTheme.subtitle1,
                             ),
                             Row(
@@ -350,7 +347,7 @@ class SeeMorePodcast extends StatelessWidget {
             height: 8,
           ),
           Text(
-            MyStrings.viewHotesBlog,
+            MyStrings.viewHotesPodcasts,
             style: textTheme.headline3,
           ),
         ],
