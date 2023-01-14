@@ -1,12 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/api_constants.dart';
 import 'package:tec/models/article_info_model.dart';
+import 'package:tec/models/article_model.dart';
+import 'package:tec/models/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
+import 'package:tec/view/article_list_screen.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = false.obs;
-  RxInt id = RxInt(-1);
+  RxInt id = RxInt(0);
   Rx<ArticleInfoModel> articleInfoModel = ArticleInfoModel().obs;
+  RxList<TagsModel> tagList = RxList();
+  RxList<ArticleModel> relatedList = RxList();
 
   @override
   void onInit() {
@@ -16,6 +22,8 @@ class SingleArticleController extends GetxController {
   }
 
   void getArticleInfo() async {
+    articleInfoModel = ArticleInfoModel().obs;
+
     loading.value = true;
     // TODO: user id
     var userId = '';
@@ -28,7 +36,17 @@ class SingleArticleController extends GetxController {
       articleInfoModel.value = ArticleInfoModel.fromJson(response.data);
       loading.value = false;
     } else {
-      loading.value = false;
+      loading.value = true;
     }
+
+    tagList.clear();
+    response.data['tags'].forEach((element) {
+      tagList.add(TagsModel.fromJson(element));
+    });
+
+    relatedList.clear();
+    response.data['related'].forEach((element) {
+      relatedList.add(ArticleModel.fromJson(element));
+    });
   }
 }

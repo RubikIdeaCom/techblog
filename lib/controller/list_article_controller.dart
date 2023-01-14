@@ -15,11 +15,13 @@ class ListArticleController extends GetxController {
     getList();
   }
 
-  void getArticleListByTagId() async {
+  void getArticleListByTagId(String id) async {
+    articleList.clear();
     loading.value = true;
 
     // Server connection, await is required
-    var response = await DioService().getMethod(ApiConstants.getArticleList);
+    var response = await DioService().getMethod(
+        '${ApiConstants.baseUrl}article/get.php?command=info&id=$id&user_id=1');
 
     if (response.statusCode == 200) {
       response.data.forEach((element) {
