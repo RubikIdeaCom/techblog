@@ -34,7 +34,7 @@ class _SingleState extends State<Single> {
       physics: const BouncingScrollPhysics(),
       child: Obx(
         () => singleArticleController.articleInfoModel.value.title == null
-            ? loading()
+            ? SizedBox(height: Get.height, child: loading())
             : Column(children: [
                 Stack(
                   children: [
