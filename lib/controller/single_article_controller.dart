@@ -50,6 +50,6 @@ class SingleArticleController extends GetxController {
       relatedList.add(ArticleModel.fromJson(element));
     });
 
-    Get.to(Single());
+    Get.to(() => Single());
   }
 }

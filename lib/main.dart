@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
-import 'package:tec/view/single.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

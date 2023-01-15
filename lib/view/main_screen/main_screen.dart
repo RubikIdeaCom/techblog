@@ -195,7 +195,7 @@ class BottomNavigation extends StatelessWidget {
                 IconButton(
                     onPressed: (() {
                       //TODO check login status
-                      Get.to(RegisterIntro());
+                      Get.to(() => RegisterIntro());
                     }),
                     icon: ImageIcon(
                         Image.asset(homePagePosterMap['write']).image),
