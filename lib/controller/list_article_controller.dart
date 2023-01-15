@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/api_constants.dart';
 import 'package:tec/models/article_model.dart';
@@ -30,7 +31,7 @@ class ListArticleController extends GetxController {
       loading.value = false;
     } else {
       loading.value = false;
-      print("Error on loading data");
+      debugPrint("Error on loading data");
     }
   }
 
@@ -47,7 +48,7 @@ class ListArticleController extends GetxController {
       loading.value = false;
     } else {
       loading.value = false;
-      print("Error on loading data");
+      debugPrint("Error on loading data");
     }
   }
 }

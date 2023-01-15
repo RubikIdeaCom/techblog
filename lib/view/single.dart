@@ -6,6 +6,7 @@ import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/controller/single_article_controller.dart';
 
+// ignore: must_be_immutable
 class Single extends StatelessWidget {
   SingleArticleController singleArticleController =
       Get.put(SingleArticleController());

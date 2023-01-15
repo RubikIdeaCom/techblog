@@ -87,8 +87,9 @@ class _MyCatsState extends State<MyCats> {
                                   selectedTags.add(tagList[index]);
                                 }
                               }),
-                              child:
-                                  MainTags(index: index, textTheme: textTheme));
+                              child: MainTags(
+                                textTheme: textTheme,
+                              ));
                         })),
                   ),
                 ),

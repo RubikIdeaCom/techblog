@@ -22,7 +22,7 @@ class DioService {
   Future<dynamic> postMethod(Map<String, dynamic> map, String url) async {
     dio.options.headers['content-type'] = 'application/json';
 
-    // TODO read token from storage
+    // TODO: read token from storage
 
     return await dio
         .post(url,

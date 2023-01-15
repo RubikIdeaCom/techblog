@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
@@ -8,6 +6,7 @@ import 'package:tec/component/my_strings.dart';
 import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/models/fake_data.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({
     Key? key,
@@ -312,7 +311,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 10),
-                  child: MainTags(index: index, textTheme: textTheme),
+                  child: MainTags(textTheme: textTheme),
                 ),
               ],
             );
@@ -330,6 +329,7 @@ class SeeMorePodcast extends StatelessWidget {
   }) : super(key: key);
 
   final double bodyMargin;
+  // ignore: prefer_typing_uninitialized_variables
   final homePagePosterMap;
   final TextTheme textTheme;
 
@@ -365,6 +365,7 @@ class SeeMoreBlog extends StatelessWidget {
   }) : super(key: key);
 
   final double bodyMargin;
+  // ignore: prefer_typing_uninitialized_variables
   final homePagePosterMap;
   final TextTheme textTheme;
 

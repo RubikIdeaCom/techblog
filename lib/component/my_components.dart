@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/models/fake_data.dart';
-
-import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
   const TechDivider({
@@ -29,10 +29,10 @@ class TechDivider extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class MainTags extends StatelessWidget {
   MainTags({
     Key? key,
-    required this.index,
     required this.textTheme,
   }) : super(key: key);
 

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
+
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/component/my_strings.dart';
 import 'package:tec/models/fake_data.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:tec/view/main_screen/home_screen.dart';
 import 'package:tec/view/main_screen/profile_screen.dart';
 import 'package:tec/view/register/register_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+// ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   RxInt selectedPageIndex = 0.obs;
 
-  MainScreen({super.key});
+  MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +196,7 @@ class BottomNavigation extends StatelessWidget {
                     color: Colors.white),
                 IconButton(
                     onPressed: (() {
-                      //TODO check login status
+                      //TODO: check login status
                       Get.to(() => RegisterIntro());
                     }),
                     icon: ImageIcon(

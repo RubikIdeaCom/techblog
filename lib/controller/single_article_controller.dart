@@ -5,7 +5,6 @@ import 'package:tec/models/article_info_model.dart';
 import 'package:tec/models/article_model.dart';
 import 'package:tec/models/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
-import 'package:tec/view/article_list_screen.dart';
 import 'package:tec/view/single.dart';
 
 class SingleArticleController extends GetxController {
@@ -37,7 +36,7 @@ class SingleArticleController extends GetxController {
       loading.value = false;
     } else {
       // loading.value = true;
-      print('Status code is not OK!');
+      debugPrint('Status code is not OK!');
     }
 
     tagList.clear();
