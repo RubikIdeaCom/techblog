@@ -8,8 +8,7 @@ import 'package:tec/controller/single_article_controller.dart';
 
 // ignore: must_be_immutable
 class Single extends StatelessWidget {
-  SingleArticleController singleArticleController =
-      Get.put(SingleArticleController());
+  var singleArticleController = Get.find<SingleArticleController>();
 
   Single({super.key});
 

@@ -9,10 +9,8 @@ import 'package:tec/controller/single_article_controller.dart';
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
 
-  ListArticleController listArticleController =
-      Get.put(ListArticleController());
-  SingleArticleController singleArticleController =
-      Get.put(SingleArticleController());
+  var listArticleController = Get.find<ListArticleController>();
+  var singleArticleController = Get.find<SingleArticleController>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class ArticleListScreen extends StatelessWidget {
                 return GestureDetector(
                   onTap: (() => {
                         singleArticleController.getArticleInfo(
-                            listArticleController.articleList[index].id)
+                            listArticleController.articleList[index].id),
                       }),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

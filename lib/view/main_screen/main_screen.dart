@@ -9,7 +9,6 @@ import 'package:tec/controller/register_controller.dart';
 import 'package:tec/models/fake_data.dart';
 import 'package:tec/view/main_screen/home_screen.dart';
 import 'package:tec/view/main_screen/profile_screen.dart';
-import 'package:tec/view/register/register_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
@@ -164,9 +163,6 @@ class BottomNavigation extends StatelessWidget {
 
   final Function(int) changeScreen;
 
-  final RegisterController _registerController =
-      Get.put(RegisterController(), permanent: false);
-
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -200,7 +196,7 @@ class BottomNavigation extends StatelessWidget {
                     color: Colors.white),
                 IconButton(
                     onPressed: (() {
-                      _registerController.toggleLogin();
+                      Get.find<RegisterController>().toggleLogin();
                     }),
                     icon: ImageIcon(
                         Image.asset(homePagePosterMap['write']).image),
