@@ -85,8 +85,8 @@ flutter:
     - assets/icons/home.png
     - assets/icons/user.png
     - assets/icons/write.png
-    - assets/icons/write_article.png
-    - assets/icons/write_podcast.png
+    - assets/images/write_article.png
+    - assets/images/write_podcast.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
