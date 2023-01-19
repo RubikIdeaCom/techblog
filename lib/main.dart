@@ -8,6 +8,7 @@ import 'package:tec/binding.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/my_http_overrides.dart';
+import 'package:tec/view/article/manage_article.dart';
 import 'package:tec/view/article/single.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
 
@@ -39,15 +40,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: [
         GetPage(
-          name: routeMainScreen,
+          name: NamedRoutes.routeMainScreen,
           page: () => MainScreen(),
           binding: RegisterBinding(),
         ),
         GetPage(
-          name: routeSingleArticle,
+          name: NamedRoutes.routeSingleArticle,
           page: () => Single(),
           binding: ArticleBinding(),
-        )
+        ),
+        GetPage(
+          name: NamedRoutes.routeManageArticle,
+          page: () => ManageArticle(),
+          binding: ArticleManagerBinding(),
+        ),
       ],
       // home: const SplashScreen(),
       // home: const Single(),
@@ -127,5 +133,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String routeMainScreen = '/MainScreen';
-String routeSingleArticle = '/SingleArticle';
+class NamedRoutes {
+  static const String routeMainScreen = '/MainScreen';
+  static const String routeSingleArticle = '/SingleArticle';
+  static const String routeManageArticle = '/ManageArticle';
+}

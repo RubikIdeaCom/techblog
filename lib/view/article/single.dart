@@ -4,7 +4,7 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_components.dart';
-import 'package:tec/controller/single_article_controller.dart';
+import 'package:tec/controller/article/single_article_controller.dart';
 
 // ignore: must_be_immutable
 class Single extends StatelessWidget {
