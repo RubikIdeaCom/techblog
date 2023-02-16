@@ -1,15 +1,15 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tec/binding.dart';
-import 'package:tec/component/my_colors.dart';
+import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/my_http_overrides.dart';
 import 'package:tec/view/article/manage_article.dart';
 import 'package:tec/view/article/single.dart';
+import 'package:tec/view/article/single_manage_article.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
 
 Future<void> main() async {
@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: RegisterBinding(),
+
       locale: const Locale('fa'),
 
       title: 'Flutter Demo',
@@ -52,6 +54,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: NamedRoutes.routeManageArticle,
           page: () => ManageArticle(),
+          binding: ArticleManagerBinding(),
+        ),
+        GetPage(
+          name: NamedRoutes.routeSingleManageArticle,
+          page: () => SingleManageArticle(),
           binding: ArticleManagerBinding(),
         ),
       ],
@@ -137,4 +144,5 @@ class NamedRoutes {
   static const String routeMainScreen = '/MainScreen';
   static const String routeSingleArticle = '/SingleArticle';
   static const String routeManageArticle = '/ManageArticle';
+  static const String routeSingleManageArticle = '/ManageArticle';
 }

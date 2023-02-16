@@ -1,4 +1,4 @@
-import 'package:tec/component/api_constants.dart';
+import 'package:tec/constants/api_constants.dart';
 
 class PodcastModel {
   late String id;
@@ -20,7 +20,7 @@ class PodcastModel {
   PodcastModel.fromJson(Map<String, dynamic> element) {
     id = element['id'];
     title = element['title'];
-    poster = ApiConstants.hostDlUrl + element['poster'];
+    poster = ApiUrlConstants.hostDlUrl + element['poster'];
     author = element['author'];
     view = element['view'];
     createdAt = element['created_at'];

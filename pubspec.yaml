@@ -48,6 +48,8 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_widget_from_html: ^0.9.1
   get_storage: ^2.0.3
+  file_picker: ^5.2.5
+  html_editor_enhanced: ^1.8.0
   
   
 dev_dependencies:

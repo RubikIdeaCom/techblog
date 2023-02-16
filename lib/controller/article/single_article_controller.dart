@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:tec/component/api_constants.dart';
+import 'package:tec/constants/api_constants.dart';
 import 'package:tec/models/article_info_model.dart';
 import 'package:tec/models/article_model.dart';
 import 'package:tec/models/tags_model.dart';
@@ -30,7 +30,7 @@ class SingleArticleController extends GetxController {
 
     // Server connection, await is required
     var response = await DioService().getMethod(
-        '${ApiConstants.baseUrl}article/get.php?command=info&id=$id&user_id=$userId');
+        '${ApiUrlConstants.baseUrl}article/get.php?command=info&id=$id&user_id=$userId');
     if (response.statusCode == 200) {
       articleInfoModel.value = ArticleInfoModel.fromJson(response.data);
       loading.value = false;

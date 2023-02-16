@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tec/component/my_colors.dart';
+import 'package:tec/constants/my_colors.dart';
 
 TextStyle appBarTextStyle = const TextStyle(
     fontFamily: 'Mahsa',

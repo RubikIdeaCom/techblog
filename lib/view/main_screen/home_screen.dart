@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tec/component/my_colors.dart';
+import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/my_components.dart';
-import 'package:tec/component/my_strings.dart';
+import 'package:tec/constants/my_strings.dart';
 import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/models/fake_data.dart';
 
@@ -362,6 +362,7 @@ class SeeMoreBlog extends StatelessWidget {
     required this.bodyMargin,
     required this.homePagePosterMap,
     required this.textTheme,
+    required String title,
   }) : super(key: key);
 
   final double bodyMargin;

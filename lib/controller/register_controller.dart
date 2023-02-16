@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tec/component/api_constants.dart';
-import 'package:tec/component/storage_constants.dart';
+import 'package:tec/constants/api_constants.dart';
+import 'package:tec/constants/storage_constants.dart';
 import 'package:tec/main.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
@@ -25,7 +24,7 @@ class RegisterController extends GetxController {
     };
 
     var response =
-        await DioService().postMethod(map, ApiConstants.postRegister);
+        await DioService().postMethod(map, ApiUrlConstants.postRegister);
 
     email = emailTextEditingController.text;
     userId = response.data['user_id'];
@@ -44,18 +43,19 @@ class RegisterController extends GetxController {
     debugPrint(map.toString());
 
     var response =
-        await DioService().postMethod(map, ApiConstants.postRegister);
+        await DioService().postMethod(map, ApiUrlConstants.postRegister);
 
     var status = response.data['response'];
 
     switch (status) {
       case 'verified':
         var box = GetStorage();
-        box.write(token, response.data['token']);
-        box.write(userId, response.data['userId']);
 
-        debugPrint('Read:: ${box.read(token)}');
-        debugPrint('Read:: ${box.read(userId)}');
+        box.write(StorageKey.token, response.data['token']);
+        box.write(StorageKey.userId, response.data['userId']);
+
+        debugPrint('Read:: ${box.read(StorageKey.token)}');
+        debugPrint('Read:: ${box.read(StorageKey.userId)}');
 
         Get.offAll(() => MainScreen());
         break;
@@ -71,7 +71,7 @@ class RegisterController extends GetxController {
   }
 
   void toggleLogin() {
-    if (GetStorage().read(token) == null) {
+    if (GetStorage().read(StorageKey.token) == null) {
       // User is not verified
       Get.to(() => RegisterIntro());
     } else {
@@ -116,6 +116,7 @@ class RegisterController extends GetxController {
                     Get.toNamed(NamedRoutes.routeManageArticle);
                   },
                   child: Container(
+                    color: Colors.white,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -136,6 +137,7 @@ class RegisterController extends GetxController {
                     debugPrint('write podcast');
                   },
                   child: Container(
+                    color: Colors.white,
                     child: Row(
                       children: [
                         Image.asset(

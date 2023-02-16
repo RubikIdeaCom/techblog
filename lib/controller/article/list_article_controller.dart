@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:tec/component/api_constants.dart';
+import 'package:tec/constants/api_constants.dart';
 import 'package:tec/models/article_model.dart';
 import 'package:tec/services/dio_service.dart';
 
@@ -22,7 +22,7 @@ class ListArticleController extends GetxController {
 
     // Server connection, await is required
     var response = await DioService().getMethod(
-        '${ApiConstants.baseUrl}article/get.php?command=info&id=$id&user_id=1');
+        '${ApiUrlConstants.baseUrl}article/get.php?command=info&id=$id&user_id=1');
 
     if (response.statusCode == 200) {
       response.data.forEach((element) {
@@ -39,7 +39,7 @@ class ListArticleController extends GetxController {
     loading.value = true;
 
     // Server connection, await is required
-    var response = await DioService().getMethod(ApiConstants.getArticleList);
+    var response = await DioService().getMethod(ApiUrlConstants.getArticleList);
 
     if (response.statusCode == 200) {
       response.data.forEach((element) {

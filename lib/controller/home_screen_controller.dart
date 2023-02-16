@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:tec/component/api_constants.dart';
+import 'package:tec/constants/api_constants.dart';
 import 'package:tec/models/article_model.dart';
 import 'package:tec/models/podcast_model.dart';
 import 'package:tec/models/poster_model.dart';
@@ -22,7 +22,7 @@ class HomeScreenController extends GetxController {
   getHomeItems() async {
     loading.value = true;
 
-    var response = await DioService().getMethod(ApiConstants.getHomeItems);
+    var response = await DioService().getMethod(ApiUrlConstants.getHomeItems);
 
     if (response.statusCode == 200) {
       response.data['top_visited'].forEach((element) {

@@ -25,6 +25,10 @@ www.rubikidea.com
   برای ارسال مطلب و پادکست باید حتما
   ثبت نام کنی.
    """;
+  static const String articleEmpty = """
+هنوز هیچ مقاله ای به جامعه گیگ های پارسی اضافه نکردی.
+همین حالا شروع کن!
+   """;
   static const String successFulRegistration = """
 تبریک میگم ایمیل با موفقیت تایید شد.
 لطفا اطلاعات ثبت نام رو کامل کن.

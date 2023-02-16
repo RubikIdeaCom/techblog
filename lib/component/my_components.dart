@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:tec/component/my_colors.dart';
+import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/models/fake_data.dart';
@@ -97,15 +97,20 @@ PreferredSize appBar(String title) {
             ),
           ),
         ],
-        leading: Padding(
-          padding: const EdgeInsets.only(right: 16),
-          child: Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: SolidColors.primaryColor.withBlue(100),
-                shape: BoxShape.circle),
-            child: const Icon(Icons.keyboard_arrow_right_rounded),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back(); // back to previous page
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  color: SolidColors.primaryColor.withBlue(100),
+                  shape: BoxShape.circle),
+              child: const Icon(Icons.keyboard_arrow_right_rounded),
+            ),
           ),
         ),
       ),
