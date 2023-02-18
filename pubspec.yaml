@@ -50,6 +50,7 @@ dependencies:
   get_storage: ^2.0.3
   file_picker: ^5.2.5
   html_editor_enhanced: ^1.8.0
+  percent_indicator: ^4.2.2
   
   
 dev_dependencies:
@@ -79,6 +80,7 @@ flutter:
     - assets/images/splash-screen.png
     - assets/images/poster.jpg
     - assets/images/avatar.jpg
+    - assets/images/write_podcast.png
     - assets/images/avatar.png
     - assets/images/techbot.svg
     - assets/icons/hashtag.png
@@ -87,8 +89,12 @@ flutter:
     - assets/icons/home.png
     - assets/icons/user.png
     - assets/icons/write.png
-    - assets/images/write_article.png
-    - assets/images/write_podcast.png
+    - assets/icons/microphon.png
+    - assets/icons/write_article.png
+    - assets/icons/write_article.png
+    - assets/icons/write_article_icon.png
+    - assets/icons/write_microphone.png
+    - assets/icons/write_podcast_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -10,6 +10,8 @@ class ApiUrlConstants {
       '${baseUrl}article/get.php?command=info&id=1&user_id=1';
   static const postRegister = '${baseUrl}register/action.php';
   static const articlePost = '${baseUrl}article/post.php';
+  static const podcastFiles =
+      '${baseUrl}podcast/get.php?command=get_files&podcats_id=';
 }
 
 class ApiArticleKeyConstant {

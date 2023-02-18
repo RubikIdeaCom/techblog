@@ -11,6 +11,7 @@ import 'package:tec/view/article/manage_article.dart';
 import 'package:tec/view/article/single.dart';
 import 'package:tec/view/article/single_manage_article.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
+import 'package:tec/view/podcast/single_podcast.dart';
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -60,6 +61,10 @@ class MyApp extends StatelessWidget {
           name: NamedRoutes.routeSingleManageArticle,
           page: () => SingleManageArticle(),
           binding: ArticleManagerBinding(),
+        ),
+        GetPage(
+          name: NamedRoutes.routeSinglePodcast,
+          page: () => PodcastSingle(),
         ),
       ],
       // home: const SplashScreen(),
@@ -141,8 +146,11 @@ class MyApp extends StatelessWidget {
 }
 
 class NamedRoutes {
+  NamedRoutes._(); // Prevent instanting
+
   static const String routeMainScreen = '/MainScreen';
   static const String routeSingleArticle = '/SingleArticle';
   static const String routeManageArticle = '/ManageArticle';
   static const String routeSingleManageArticle = '/ManageArticle';
+  static const String routeSinglePodcast = '/singlePodcast';
 }

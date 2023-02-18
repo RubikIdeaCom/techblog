@@ -4,6 +4,7 @@ import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/constants/my_strings.dart';
 import 'package:tec/controller/home_screen_controller.dart';
+import 'package:tec/main.dart';
 import 'package:tec/models/fake_data.dart';
 
 // ignore: must_be_immutable
@@ -160,62 +161,69 @@ class HomeScreen extends StatelessWidget {
             //Blog Item
             return Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 12),
-                  child:
-                      //Blog List
-                      SizedBox(
-                    height: size.height / 5.3,
-                    width: size.width / 2.4,
-                    child: Stack(children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(16)),
-                          image: DecorationImage(
-                              image: NetworkImage(homeScreenController
-                                  .topPodcast[index].poster),
-                              fit: BoxFit.cover),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(NamedRoutes.routeSinglePodcast,
+                        arguments: homeScreenController.topPodcast[index]);
+                  },
+                  child: Padding(
+                    padding:
+                        EdgeInsets.only(right: index == 0 ? bodyMargin : 12),
+                    child:
+                        //Blog List
+                        SizedBox(
+                      height: size.height / 5.3,
+                      width: size.width / 2.4,
+                      child: Stack(children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16)),
+                            image: DecorationImage(
+                                image: NetworkImage(homeScreenController
+                                    .topPodcast[index].poster),
+                                fit: BoxFit.cover),
+                          ),
+                          foregroundDecoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            gradient: LinearGradient(
+                                colors: GradiantColors.blogPost,
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter),
+                          ),
                         ),
-                        foregroundDecoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          gradient: LinearGradient(
-                              colors: GradiantColors.blogPost,
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter),
+                        Positioned(
+                          left: 0,
+                          bottom: 8,
+                          right: 0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                homeScreenController.topPodcast[index].author,
+                                style: textTheme.subtitle1,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    homeScreenController.topPodcast[index].view,
+                                    style: textTheme.subtitle1,
+                                  ),
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  const Icon(
+                                    Icons.remove_red_eye_sharp,
+                                    color: Colors.white,
+                                    size: 16,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        left: 0,
-                        bottom: 8,
-                        right: 0,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              homeScreenController.topPodcast[index].author,
-                              style: textTheme.subtitle1,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  homeScreenController.topPodcast[index].view,
-                                  style: textTheme.subtitle1,
-                                ),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                const Icon(
-                                  Icons.remove_red_eye_sharp,
-                                  color: Colors.white,
-                                  size: 16,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ]),
+                      ]),
+                    ),
                   ),
                 ),
                 SizedBox(
