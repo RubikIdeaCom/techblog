@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:tec/constants/api_constants.dart';

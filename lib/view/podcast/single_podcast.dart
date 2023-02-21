@@ -1,4 +1,4 @@
-// ignore: must_be_immutable
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,6 @@ import 'package:tec/constants/my_colors.dart';
 import 'package:tec/controller/podcast/single_podcast_controller.dart';
 import 'package:tec/models/podcast_model.dart';
 
-// ignore: must_be_immutable
 class PodcastSingle extends StatelessWidget {
   late SinglePodcastController controller;
   late PodcastModel podcastModel;
@@ -41,7 +40,7 @@ class PodcastSingle extends StatelessWidget {
                       height: Get.height / 3,
                       width: double.infinity,
                       child: CachedNetworkImage(
-                        imageUrl: podcastModel.poster!,
+                        imageUrl: podcastModel.poster,
                         imageBuilder: ((context, imageProvider) => Image(
                               image: imageProvider,
                               fit: BoxFit.fill,
@@ -205,7 +204,8 @@ class PodcastSingle extends StatelessWidget {
                     children: [
                       Obx(
                         () => ProgressBar(
-                          timeLabelTextStyle: TextStyle(color: Colors.white),
+                          timeLabelTextStyle:
+                              const TextStyle(color: Colors.white),
                           thumbColor: Colors.yellow,
                           baseBarColor: Colors.white,
                           progressBarColor: Colors.orange,

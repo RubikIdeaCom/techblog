@@ -52,6 +52,7 @@ dependencies:
   html_editor_enhanced: ^1.8.0
   percent_indicator: ^4.2.2
   just_audio: ^0.9.31
+  audio_video_progress_bar: ^1.0.0
   
   
 dev_dependencies:
