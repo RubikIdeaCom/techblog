@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tec/binding.dart';
+import 'package:tec/route_manager/binding.dart';
 import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/text_style.dart';
 import 'package:tec/my_http_overrides.dart';
-import 'package:tec/view/article/manage_article.dart';
-import 'package:tec/view/article/single.dart';
-import 'package:tec/view/article/single_manage_article.dart';
-import 'package:tec/view/main_screen/main_screen.dart';
-import 'package:tec/view/podcast/single_podcast.dart';
+import 'package:tec/route_manager/names.dart';
+import 'package:tec/route_manager/pages.dart';
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -41,35 +38,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: lightTheme(),
       debugShowCheckedModeBanner: false,
-      getPages: [
-        GetPage(
-          name: NamedRoutes.routeMainScreen,
-          page: () => MainScreen(),
-          binding: RegisterBinding(),
-        ),
-        GetPage(
-          name: NamedRoutes.routeSingleArticle,
-          page: () => Single(),
-          binding: ArticleBinding(),
-        ),
-        GetPage(
-          name: NamedRoutes.routeManageArticle,
-          page: () => ManageArticle(),
-          binding: ArticleManagerBinding(),
-        ),
-        GetPage(
-          name: NamedRoutes.routeSingleManageArticle,
-          page: () => SingleManageArticle(),
-          binding: ArticleManagerBinding(),
-        ),
-        GetPage(
-          name: NamedRoutes.routeSinglePodcast,
-          page: () => PodcastSingle(),
-        ),
-      ],
+      initialRoute: NamedRoutes.initialRoute,
+      getPages: Pages.pages,
       // home: const SplashScreen(),
-      // home: const Single(),
-      home: MainScreen(),
     );
   }
 
@@ -143,14 +114,4 @@ class MyApp extends StatelessWidget {
       primarySwatch: Colors.blue,
     );
   }
-}
-
-class NamedRoutes {
-  NamedRoutes._(); // Prevent instanting
-
-  static const String routeMainScreen = '/MainScreen';
-  static const String routeSingleArticle = '/SingleArticle';
-  static const String routeManageArticle = '/ManageArticle';
-  static const String routeSingleManageArticle = '/ManageArticle';
-  static const String routeSinglePodcast = '/singlePodcast';
 }

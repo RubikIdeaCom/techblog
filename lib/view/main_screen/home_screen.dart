@@ -4,8 +4,8 @@ import 'package:tec/constants/my_colors.dart';
 import 'package:tec/component/my_components.dart';
 import 'package:tec/constants/my_strings.dart';
 import 'package:tec/controller/home_screen_controller.dart';
-import 'package:tec/main.dart';
 import 'package:tec/models/fake_data.dart';
+import 'package:tec/route_manager/names.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -42,9 +42,11 @@ class HomeScreen extends StatelessWidget {
                       height: 32,
                     ),
                     SeeMoreBlog(
-                        bodyMargin: bodyMargin,
-                        homePagePosterMap: homePagePosterMap,
-                        textTheme: textTheme),
+                      bodyMargin: bodyMargin,
+                      homePagePosterMap: homePagePosterMap,
+                      textTheme: textTheme,
+                      title: '',
+                    ),
                     topVisited(),
                     const SizedBox(
                       height: 32,

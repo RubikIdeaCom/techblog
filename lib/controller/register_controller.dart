@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tec/constants/api_constants.dart';
 import 'package:tec/constants/storage_constants.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/names.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
 import 'package:tec/view/register/register_intro.dart';

@@ -10,7 +10,6 @@ import 'package:tec/controller/article/manage_article_controller.dart';
 import 'package:tec/controller/file_controller.dart';
 import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/services/pick_file.dart';
-import 'package:tec/view/articles/articel_list_sceen.dart';
 import 'package:tec/view/main_screen/home_screen.dart';
 
 import 'article_content_editor.dart';
@@ -153,6 +152,7 @@ class SingleManageArticle extends StatelessWidget {
                 bodyMargin: Dimens.halfBodyMargin,
                 textTheme: textheme,
                 title: 'ویرایش عنوان مقاله',
+                homePagePosterMap: null,
               ),
             ),
 
@@ -170,6 +170,7 @@ class SingleManageArticle extends StatelessWidget {
                 bodyMargin: Dimens.halfBodyMargin,
                 textTheme: textheme,
                 title: 'ویرایش متن اصلی مقاله',
+                homePagePosterMap: null,
               ),
             ),
 
@@ -194,6 +195,7 @@ class SingleManageArticle extends StatelessWidget {
                 bodyMargin: Dimens.halfBodyMargin,
                 textTheme: textheme,
                 title: 'انتخاب دسته بندی ',
+                homePagePosterMap: null,
               ),
             ),
             Padding(

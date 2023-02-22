@@ -2,10 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/component/my_components.dart';
+import 'package:tec/constants/my_strings.dart';
 import 'package:tec/controller/article/manage_article_controller.dart';
-import 'package:tec/main.dart';
-
-import '../../constants/my_strings.dart';
+import 'package:tec/route_manager/names.dart';
 
 // ignore: must_be_immutable
 class ManageArticle extends StatelessWidget {
@@ -117,7 +116,7 @@ class ManageArticle extends StatelessWidget {
             style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all(Size(Get.width / 3, 56))),
             onPressed: () {
-              Get.toNamed(NamedRoutes.singleManageArticle);
+              Get.toNamed(NamedRoutes.routeSingleManageArticle);
             },
             child: const Text("بریم برای نوشتن یه مقاله باحال"),
           ),
@@ -132,7 +131,7 @@ class ManageArticle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            Assets.images.emptyState.path,
+            "assets/images/splash-screen.png",
             height: 100,
           ),
           Padding(
@@ -140,7 +139,7 @@ class ManageArticle extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                text: MyStrings.articelEmpty,
+                text: MyStrings.articleEmpty,
                 style: textTheme.headline4,
               ),
             ),
