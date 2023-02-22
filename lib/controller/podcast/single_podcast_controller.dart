@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:tec/constants/api_constants.dart';
@@ -62,6 +63,7 @@ class SinglePodcastController extends GetxController {
 
     timer = Timer.periodic(tick, (timer) {
       duration--;
+      log("duration: $duration ===> index: ${player.currentIndex}");
       progressValue.value = player.position;
       bufferedValue.value = player.bufferedPosition;
       if (duration <= 0) {
