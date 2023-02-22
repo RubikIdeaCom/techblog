@@ -16,7 +16,6 @@ class SingleArticleController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getArticleInfo(id);
   }
@@ -25,7 +24,6 @@ class SingleArticleController extends GetxController {
     articleInfoModel = ArticleInfoModel().obs;
 
     loading.value = true;
-    // TODO: user id
     var userId = '';
 
     // Server connection, await is required

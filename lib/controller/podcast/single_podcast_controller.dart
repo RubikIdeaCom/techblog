@@ -7,6 +7,7 @@ import 'package:tec/models/podcast_file_model.dart';
 import 'package:tec/services/dio_service.dart';
 
 class SinglePodcastController extends GetxController {
+  // ignore: prefer_typing_uninitialized_variables
   var id;
 
   SinglePodcastController({this.id});

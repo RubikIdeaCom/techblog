@@ -12,7 +12,6 @@ import 'package:tec/models/article_info_model.dart';
 import 'package:tec/models/article_model.dart';
 import 'package:tec/models/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
-import 'package:tec/services/pick_file.dart';
 
 class ManageArticleController extends GetxController {
   RxList<ArticleModel> articleList = RxList.empty();

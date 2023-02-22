@@ -250,7 +250,7 @@ class SingleManageArticle extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
                     child: Center(
                       child: Text(
-                        homeScreenController.tagsList[index].title!,
+                        homeScreenController.tagsList[index].title,
                         style: textheme.headline2,
                       ),
                     )),

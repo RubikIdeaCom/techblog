@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
@@ -11,7 +12,6 @@ class ArticleContentEditor extends StatelessWidget {
 
   final HtmlEditorController controller = HtmlEditorController();
   var manageArticleController = Get.put(ManageArticleController());
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

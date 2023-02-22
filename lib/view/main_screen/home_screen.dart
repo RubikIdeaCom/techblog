@@ -200,7 +200,8 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                homeScreenController.topPodcast[index].author,
+                                homeScreenController
+                                    .topPodcast[index].publisher,
                                 style: textTheme.subtitle1,
                               ),
                               Row(

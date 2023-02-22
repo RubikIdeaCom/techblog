@@ -41,7 +41,7 @@ class ManageArticle extends StatelessWidget {
                                 width: Get.width / 3,
                                 child: CachedNetworkImage(
                                   imageUrl: articleManageController
-                                      .articleList[index].image!,
+                                      .articleList[index].image,
                                   imageBuilder: (((context, imageProvider) {
                                     return Container(
                                       decoration: BoxDecoration(
@@ -73,7 +73,7 @@ class ManageArticle extends StatelessWidget {
                                     width: Get.width / 2,
                                     child: Text(
                                       articleManageController
-                                          .articleList[index].title!,
+                                          .articleList[index].title,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                     ),
@@ -87,7 +87,7 @@ class ManageArticle extends StatelessWidget {
                                     children: [
                                       Text(
                                         articleManageController
-                                            .articleList[index].author!,
+                                            .articleList[index].author,
                                         style: textTheme.caption,
                                       ),
                                       const SizedBox(

@@ -9,6 +9,7 @@ import 'package:tec/constants/my_colors.dart';
 import 'package:tec/controller/podcast/single_podcast_controller.dart';
 import 'package:tec/models/podcast_model.dart';
 
+// ignore: must_be_immutable
 class PodcastSingle extends StatelessWidget {
   late SinglePodcastController controller;
   late PodcastModel podcastModel;
